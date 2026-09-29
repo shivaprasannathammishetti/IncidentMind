@@ -1,0 +1,122 @@
+[
+  {
+    "incident_id": "INC-001",
+    "service": "Payment API",
+    "error": "HTTP 500 errors during payment processing",
+    "root_cause": "Database connection pool exhaustion",
+    "resolution": "Increased database connection pool size and restarted workers",
+    "environment": "Production",
+    "date": "2026-08-10",
+    "impact": "20% of payment requests failed for 12 minutes"
+  },
+  {
+    "incident_id": "INC-002",
+    "service": "Authentication API",
+    "error": "Users unable to log in",
+    "root_cause": "Redis session store became unavailable",
+    "resolution": "Restored Redis cluster and rebuilt affected replicas",
+    "environment": "Production",
+    "date": "2026-08-12",
+    "impact": "Approximately 35% of login attempts failed for 18 minutes"
+  },
+  {
+    "incident_id": "INC-003",
+    "service": "Order Service",
+    "error": "Order creation requests timing out",
+    "root_cause": "Slow database queries caused by a missing index",
+    "resolution": "Added database index and optimized the affected query",
+    "environment": "Production",
+    "date": "2026-08-15",
+    "impact": "Order creation latency increased to more than 10 seconds"
+  },
+  {
+    "incident_id": "INC-004",
+    "service": "Payment API",
+    "error": "Payment requests returning HTTP 502",
+    "root_cause": "Third-party payment gateway timeout",
+    "resolution": "Enabled retry with exponential backoff and increased gateway timeout threshold",
+    "environment": "Production",
+    "date": "2026-08-17",
+    "impact": "15% of payment requests were delayed for 9 minutes"
+  },
+  {
+    "incident_id": "INC-005",
+    "service": "Notification Service",
+    "error": "Email notifications stopped being delivered",
+    "root_cause": "Message queue consumer crashed after a deployment",
+    "resolution": "Rolled back deployment and restarted queue consumers",
+    "environment": "Production",
+    "date": "2026-08-19",
+    "impact": "Around 8,000 notifications were delayed"
+  },
+  {
+    "incident_id": "INC-006",
+    "service": "User Profile API",
+    "error": "API latency increased significantly",
+    "root_cause": "Memory leak in profile image processing component",
+    "resolution": "Restarted affected pods and deployed a memory leak fix",
+    "environment": "Production",
+    "date": "2026-08-21",
+    "impact": "API response time increased from 300ms to 4 seconds"
+  },
+  {
+    "incident_id": "INC-007",
+    "service": "Inventory Service",
+    "error": "Inventory updates failing intermittently",
+    "root_cause": "Database deadlocks caused by concurrent update transactions",
+    "resolution": "Changed transaction ordering and added retry handling",
+    "environment": "Production",
+    "date": "2026-08-23",
+    "impact": "Approximately 10% of inventory updates failed"
+  },
+  {
+    "incident_id": "INC-008",
+    "service": "Search API",
+    "error": "Search requests returning HTTP 503",
+    "root_cause": "Search cluster exceeded memory limits",
+    "resolution": "Scaled the search cluster and increased memory allocation",
+    "environment": "Production",
+    "date": "2026-08-25",
+    "impact": "Search functionality was unavailable for 14 minutes"
+  },
+  {
+    "incident_id": "INC-009",
+    "service": "Payment API",
+    "error": "HTTP 500 errors with unusually high database connections",
+    "root_cause": "Database connection pool exhaustion after traffic spike",
+    "resolution": "Increased connection pool capacity and scaled application workers",
+    "environment": "Production",
+    "date": "2026-08-27",
+    "impact": "18% of payment requests failed during peak traffic"
+  },
+  {
+    "incident_id": "INC-010",
+    "service": "Authentication API",
+    "error": "Authentication requests timing out",
+    "root_cause": "Database latency increased after a configuration change",
+    "resolution": "Reverted the configuration change and optimized connection settings",
+    "environment": "Production",
+    "date": "2026-08-29",
+    "impact": "Users experienced login delays for 11 minutes"
+  },
+  {
+    "incident_id": "INC-011",
+    "service": "Order Service",
+    "error": "HTTP 500 errors after deployment",
+    "root_cause": "Application deployment introduced an incompatible database schema change",
+    "resolution": "Rolled back the deployment and restored the compatible schema version",
+    "environment": "Production",
+    "date": "2026-09-02",
+    "impact": "Order creation failed for approximately 7 minutes"
+  },
+  {
+    "incident_id": "INC-012",
+    "service": "Notification Service",
+    "error": "Large backlog of messages in notification queue",
+    "root_cause": "Queue consumers were running below expected capacity",
+    "resolution": "Scaled consumer workers and adjusted consumer concurrency",
+    "environment": "Production",
+    "date": "2026-09-05",
+    "impact": "Notification delivery was delayed by up to 25 minutes"
+  }
+]
